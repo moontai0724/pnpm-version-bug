@@ -1,9 +1,9 @@
 #!/bin/bash
 
-release_versions=$(find "." -type d -name "version-*" | sed 's|.*/version-||')
+release_versions=$(find "." -type d -name "version-*" | sed 's|.*/version-||' | sort -r)
 
 # Define available titles
-titles=("v2.0" "major-v2.0" "minor-v2.0")
+titles=("v2.3" "v2.3.0" "major-v2.3" "minor-v2.3.0")
 
 # Create a markdown table header
 header="| | ${titles[0]} (add) | ${titles[0]} (install)"

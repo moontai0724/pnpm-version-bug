@@ -1,16 +1,18 @@
 {
 	"scripts": {
-		"version-test": "npm run install-pnpm && npm run all-test && pnpm -v > version/pnpm-version && mv version version-$npm_config_pnpm_version",
+		"version-test": "npm run install-pnpm && npm run all-test && pnpm -v > version/pnpm-version && mv version version-$npm_config_pnpm_version && sh result.sh",
 		"install-pnpm": "curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=$npm_config_pnpm_version sh -",
 		"clean": "rm -rf node_modules/ pnpm-lock.yaml && cp package.template.json package.json",
-		"all-test": "rm -rf version && mkdir version && pnpm clean && pnpm add-all && pnpm install-all && sh result.sh",
-		"add-all": "pnpm add-v2.0 && pnpm add-major-v2.0 && pnpm add-minor-v2.0",
-		"add-v2.0": "pnpm add -D vue@2.0 --no-lockfile -- > version/add-v2.0.log && cp package.json version/package.add-v2.0.json && pnpm clean",
-		"add-major-v2.0": "pnpm add -D vue@^2.0 --no-lockfile -- > version/add-major-v2.0.log && cp package.json version/package.add-major-v2.0.json && pnpm clean",
-		"add-minor-v2.0": "pnpm add -D vue@~2.0 --no-lockfile -- > version/add-minor-v2.0.log && cp package.json version/package.add-minor-v2.0.json && pnpm clean",
-		"install-all": "pnpm install-v2.0 && pnpm install-major-v2.0 && pnpm install-minor-v2.0 && pnpm install-minor-v2.0",
-		"install-v2.0": "cp version/package.add-v2.0.json package.json && pnpm install --no-lockfile -- > version/install-v2.0.log && pnpm clean",
-		"install-major-v2.0": "cp version/package.add-major-v2.0.json package.json && pnpm install --no-lockfile -- > version/install-major-v2.0.log && pnpm clean",
-		"install-minor-v2.0": "cp version/package.add-minor-v2.0.json package.json && pnpm install --no-lockfile -- > version/install-minor-v2.0.log && pnpm clean"
+		"all-test": "rm -rf version && mkdir version && pnpm clean && pnpm add-all && pnpm install-all",
+		"add-all": "pnpm add-v2.3 && pnpm add-v2.3.0 && pnpm add-major-v2.3 && pnpm add-minor-v2.3.0",
+		"add-v2.3": "pnpm add -D vue@2.3 --no-lockfile -- > version/add-v2.3.log && cp package.json version/package.add-v2.3.json && pnpm clean",
+		"add-v2.3.0": "pnpm add -D vue@2.3.0 --no-lockfile -- > version/add-v2.3.0.log && cp package.json version/package.add-v2.3.0.json && pnpm clean",
+		"add-major-v2.3": "pnpm add -D vue@^2.3 --no-lockfile -- > version/add-major-v2.3.log && cp package.json version/package.add-major-v2.3.json && pnpm clean",
+		"add-minor-v2.3.0": "pnpm add -D vue@~2.3.0 --no-lockfile -- > version/add-minor-v2.3.0.log && cp package.json version/package.add-minor-v2.3.0.json && pnpm clean",
+		"install-all": "pnpm install-v2.3 && pnpm install-v2.3.0 && pnpm install-major-v2.3 && pnpm install-minor-v2.3.0 && pnpm install-minor-v2.3.0",
+		"install-v2.3": "cp version/package.add-v2.3.json package.json && pnpm install --no-lockfile -- > version/install-v2.3.log && pnpm clean",
+		"install-v2.3.0": "cp version/package.add-v2.3.0.json package.json && pnpm install --no-lockfile -- > version/install-v2.3.0.log && pnpm clean",
+		"install-major-v2.3": "cp version/package.add-major-v2.3.json package.json && pnpm install --no-lockfile -- > version/install-major-v2.3.log && pnpm clean",
+		"install-minor-v2.3.0": "cp version/package.add-minor-v2.3.0.json package.json && pnpm install --no-lockfile -- > version/install-minor-v2.3.0.log && pnpm clean"
 	}
 }
